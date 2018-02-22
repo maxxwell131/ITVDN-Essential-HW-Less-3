@@ -8,22 +8,22 @@ namespace Task_2
 {
     class Pupil
     {
-        public void Stady()
+        public virtual void Study()
         {
-            Console.WriteLine("Pupil stady");
+            Console.WriteLine("Pupil Study");
         }
 
-        public void Read()
+        public virtual void Read()
         {
             Console.WriteLine("Pupil read");
         }
 
-        public void Write()
+        public virtual void Write()
         {
             Console.WriteLine("Pupil write");
         }
 
-        public void Relax()
+        public virtual void Relax()
         {
             Console.WriteLine("Pupil relax");
         }

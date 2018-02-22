@@ -8,24 +8,75 @@ namespace Task_2
 {
     class ClassRoom
     {
-        public void Stady()
+        Pupil[] pupils = new Pupil[4];
+        Random random = new Random();
+
+       public ClassRoom(Pupil pupil_1, Pupil pupil_2)
         {
-            Console.WriteLine("ClassRoom stady");
+            pupils[0] = pupil_1;
+            pupils[1] = pupil_2;
+            pupils[2] = GeneratePupil();
+            pupils[3] = GeneratePupil();
+        }
+
+        public ClassRoom(Pupil pupil_1, Pupil pupil_2, Pupil pupil_3)
+        {
+            pupils[0] = pupil_1;
+            pupils[1] = pupil_2;
+            pupils[2] = pupil_3;
+            pupils[3] = GeneratePupil();
+        }
+
+        public ClassRoom(Pupil pupil_1, Pupil pupil_2, Pupil pupil_3, Pupil pupil_4)
+        {
+            pupils[0] = pupil_1;
+            pupils[1] = pupil_2;
+            pupils[2] = pupil_3;
+            pupils[3] = pupil_4;
+        }
+
+        public void Study()
+        {
+            foreach (Pupil currentPupil in pupils)
+            {
+                currentPupil.Study();
+            }
         }
 
         public void Read()
         {
-            Console.WriteLine("ClassRoom read");
+            foreach (Pupil currentPupil in pupils)
+            {
+                currentPupil.Read();
+            }
         }
 
         public void Write()
         {
-            Console.WriteLine("ClassRoom write");
+            foreach (Pupil currentPupil in pupils)
+            {
+                currentPupil.Write();
+            }
         }
 
         public void Relax()
         {
-            Console.WriteLine("ClassRoom relax");
+            foreach (Pupil currentPupil in pupils)
+            {
+                currentPupil.Relax();
+            }
+        }
+
+        private Pupil GeneratePupil()
+        {
+            switch(random.Next(1,4))
+            {
+                case 1: return new BadPupil();
+                case 2: return new GoodPupil();
+
+                default: return new ExcelentPupil();
+            }
+
         }
     }
 }
