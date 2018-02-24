@@ -32,6 +32,48 @@ namespace Task_4
 
         static void Main(string[] args)
         {
+            DocumentWorker document = null;
+            
+
+            int i = 0;
+            Random random = new Random();
+
+            while ((i++) != 4)
+            {
+                switch (random.Next(1, 4))
+                {
+                    case 1:
+                        {
+                            document = new DocumentWorker();
+                            WorkWithDocument(document, "DocumentWorker");
+                            break;
+                        }
+                    case 2:
+                        {
+                            document = new ExpertDocumentWorker();
+                            WorkWithDocument(document, "ExpertDocumentWorker");
+                            break;
+                        }
+                    case 3:
+                        {
+                            document = new ProDocumentWorker();
+                            WorkWithDocument(document, "ProDocumentWorker");
+                            break;
+                        }
+
+                }
+            }
+
+            Console.ReadKey();
+        }
+
+        static void WorkWithDocument(DocumentWorker document, string objectName)
+        {
+            Console.WriteLine(new string('.', 10));
+            Console.WriteLine("------- {0} ------", objectName);
+            document.OpenDocument();
+            document.EditDocument();
+            document.SaveDocument();
         }
     }
 }
